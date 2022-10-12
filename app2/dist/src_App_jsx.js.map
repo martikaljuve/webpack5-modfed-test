@@ -1,0 +1,1 @@
+{"version":3,"file":"src_App_jsx.js","mappings":";;;;;;;;;;;;;;;AAA0B;AAEX,SAASC,GAAG,GAAG;EAC5B,oBAAO,2FAA2B;AACpC","sources":["webpack://app2/./src/App.jsx"],"sourcesContent":["import React from \"react\";\n\nexport default function App() {\n  return <div>hello from App2.</div>;\n}\n"],"names":["React","App"],"sourceRoot":""}
