@@ -16,6 +16,9 @@ const config: webpack.Configuration = {
 
   optimization: {
     minimize: false,
+    runtimeChunk: {
+      name: "runtime",
+    },
     // splitChunks: {
     //   chunks: "all",
     // },
@@ -56,7 +59,20 @@ const config: webpack.Configuration = {
     new webpack.container.ModuleFederationPlugin({
       remoteType: "system",
       remotes: ["app2"],
-      shared: dependencies,
+      shared: {
+        react: {
+          import: false,
+          requiredVersion: dependencies.react,
+        },
+        "react-dom": {
+          import: false,
+          requiredVersion: dependencies["react-dom"],
+        },
+        "styled-components": {
+          import: false,
+          requiredVersion: dependencies["styled-components"],
+        },
+      },
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: "public", to: "." }],

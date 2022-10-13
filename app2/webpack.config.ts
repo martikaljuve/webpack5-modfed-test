@@ -4,14 +4,6 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 
 import { dependencies } from "./package.json";
 
-const shared = Object.entries(dependencies).reduce((acc, [dep, version]) => {
-  acc[dep] = {
-    import: false,
-    requiredVersion: version,
-  };
-  return acc;
-}, {});
-
 const config: webpack.Configuration = {
   entry: "./src/index",
   cache: false,
@@ -56,18 +48,36 @@ const config: webpack.Configuration = {
     ],
   },
 
+  /**
+   * NOTE: Webpack "externals" are also added as deps in the remoteEntry.js, which is suboptimal.
+   *   System.register(["styled-components"], ...)
+   */
+  // externals: ["styled-components"],
+
   plugins: [
     new webpack.CleanPlugin(),
     new webpack.container.ModuleFederationPlugin({
       name: "app2",
       filename: "remoteEntry.js",
-      // runtime: "remoteEntry-runtime",
       library: { type: "system" },
       remoteType: "system",
       exposes: {
         "./App": "./src/App",
       },
-      shared,
+      shared: {
+        react: {
+          import: false, // NOTE: `false` means webpack will not create a fallback chunk with this dependency
+          requiredVersion: dependencies["react"],
+        },
+        "react-dom": {
+          import: false,
+          requiredVersion: dependencies["react-dom"],
+        },
+        "styled-components": {
+          import: false,
+          requiredVersion: dependencies["styled-components"],
+        },
+      },
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: "public", to: "." }],

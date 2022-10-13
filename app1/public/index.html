@@ -9,7 +9,11 @@
           "app3": "http://localhost:3003/remoteEntry.js",
           "app1/": "http://localhost:3001/",
           "app2/": "http://localhost:3002/",
-          "app3/": "http://localhost:3003/"
+          "app3/": "http://localhost:3003/",
+          "styled-components": "https://unpkg.com/styled-components@5.3.6/dist/styled-components.js",
+          "react-is": "https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js",
+          "react": "https://unpkg.com/react@18.2.0/umd/react.production.min.js",
+          "react-dom": "https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"
         }
       }
     </script>
@@ -17,8 +21,11 @@
   <body>
     <div id="root"></div>
     <script src="https://unpkg.com/systemjs/dist/system.js"></script>
+    <script src="https://unpkg.com/systemjs/dist/extras/amd.js"></script>
     <script>
-      System.import("app1/main.js");
+      System.import("app1/runtime.js").then(() =>
+        System.import("app1/main.js")
+      );
     </script>
   </body>
 </html>
