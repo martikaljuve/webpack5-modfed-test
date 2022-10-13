@@ -1,10 +1,14 @@
+import "webpack-dev-server";
 import * as webpack from "webpack";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 
 import { dependencies } from "./package.json";
 
 const config: webpack.Configuration = {
-  entry: "./src/index",
+  entry: {
+    main: "./src/index",
+    styled: "styled-components",
+  },
   cache: false,
 
   mode: "development",
@@ -15,6 +19,13 @@ const config: webpack.Configuration = {
     // splitChunks: {
     //   chunks: "all",
     // },
+  },
+
+  devServer: {
+    port: 3001,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
 
   output: {

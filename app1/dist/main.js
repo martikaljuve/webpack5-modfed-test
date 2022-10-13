@@ -21,6 +21,7 @@ System.register(["app2"], function(__WEBPACK_DYNAMIC_EXPORT__, __system_context_
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.all(/*! import() */[__webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("src_bootstrap_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ "./src/bootstrap.jsx"));
+console.log("__webpack_share_scopes__", __webpack_require__.S);
 
 /***/ }),
 
@@ -318,6 +319,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_webpack_container_reference_app2__;
 /******/ 				case "default": {
 /******/ 					register("react-dom", "18.2.0", () => (Promise.all([__webpack_require__.e("vendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
 /******/ 					register("react", "18.2.0", () => (__webpack_require__.e("vendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
+/******/ 					register("styled-components", "5.3.6", () => (Promise.all([__webpack_require__.e("vendors-node_modules_styled-components_dist_styled-components_browser_esm_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/styled-components/dist/styled-components.browser.esm.js */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"))))));
 /******/ 					initExternal("webpack/container/reference/app2");
 /******/ 				}
 /******/ 				break;
@@ -528,7 +530,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_webpack_container_reference_app2__;
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(/^(vendors\-node_modules_react(|\-dom)_index_js|main|src_bootstrap_jsx)$/.test(chunkId)) {
+/******/ 						if(!/^webpack_(container_remote_app2_App|sharing_consume_default_react_react)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -596,6 +598,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_webpack_container_reference_app2__;
 /******/ 		var chunkLoadingGlobal = self["webpackChunkapp1"] = self["webpackChunkapp1"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

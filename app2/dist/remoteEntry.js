@@ -374,12 +374,14 @@ __webpack_require__.d(exports, {
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
-/******/ 			"webpack/sharing/consume/default/react": () => (loadVersionCheck("default", "react", [1,18,2,0]))
+/******/ 			"webpack/sharing/consume/default/react": () => (loadVersionCheck("default", "react", [1,18,2,0])),
+/******/ 			"webpack/sharing/consume/default/styled-components": () => (loadVersionCheck("default", "styled-components", [1,5,3,6]))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"src_App_jsx": [
-/******/ 				"webpack/sharing/consume/default/react"
+/******/ 				"webpack/sharing/consume/default/react",
+/******/ 				"webpack/sharing/consume/default/styled-components"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {

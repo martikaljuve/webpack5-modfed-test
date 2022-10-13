@@ -1,3 +1,4 @@
+import "webpack-dev-server";
 import * as webpack from "webpack";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 
@@ -17,6 +18,13 @@ const config: webpack.Configuration = {
 
   mode: "development",
   devtool: "source-map",
+
+  devServer: {
+    port: 3002,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  },
 
   optimization: {
     minimize: false,
@@ -53,6 +61,7 @@ const config: webpack.Configuration = {
     new webpack.container.ModuleFederationPlugin({
       name: "app2",
       filename: "remoteEntry.js",
+      // runtime: "remoteEntry-runtime",
       library: { type: "system" },
       remoteType: "system",
       exposes: {

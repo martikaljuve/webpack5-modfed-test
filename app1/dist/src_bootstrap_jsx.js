@@ -14,7 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "webpack/sharing/consume/default/react/react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const App2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_app2_App").then(__webpack_require__.t.bind(__webpack_require__, /*! app2/App */ "webpack/container/remote/app2/App", 23)));
+const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+const App2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => sleep(2000).then(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_app2_App").then(__webpack_require__.t.bind(__webpack_require__, /*! app2/App */ "webpack/container/remote/app2/App", 23))));
 console.log(App2);
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Suspense), {

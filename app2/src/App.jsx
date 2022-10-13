@@ -1,5 +1,10 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  color: red;
+`;
 
 export default function App() {
-  return <div>hello from App2.</div>;
+  return <StyledDiv>hello from App2.</StyledDiv>;
 }
